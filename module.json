@@ -1,0 +1,12 @@
+{
+	"disableAutoUpdate": false,
+	"name": "Relog",
+	"author": "Fukki",
+	"description": "Relog with command.",
+	"version": "Kappa :v",
+	"options": {
+		"niceName": "Relog"
+	},
+	"servers": ["https://raw.githubusercontent.com/Fukki/Relog/master/"],
+	"supportUrl": "https://github.com/Fukki/Relog/issues/"
+}
