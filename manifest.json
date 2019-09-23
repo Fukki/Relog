@@ -1,12 +1,12 @@
 {
 	"files": {
-		"index.js": "408b45f43eb3df3f5e26b206013af64e982a919ba91d8ca567174ee7689740ac"
+		"index.js": "828cbbc5de9d8f32d6aa02a661563a11bcddab5b0a6382a877709dcc2a244985"
 	},
 	"defs": {
 		"C_GET_USER_LIST": 1,
 		"C_RETURN_TO_LOBBY": 1,
 		"C_SELECT_USER": 1,
-		"S_GET_USER_LIST": 14,
+		"S_GET_USER_LIST": 16,
 		"S_PREPARE_RETURN_TO_LOBBY": 1,
 		"S_RETURN_TO_LOBBY": 1
 	}
