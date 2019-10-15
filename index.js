@@ -12,7 +12,7 @@ module.exports = function Relog(mod) {
   })
 
   // Grab the user list the first time the client sees the lobby
-  mod.hook('S_GET_USER_LIST', 16, event => updatePositions(event.characters))
+  mod.hook('S_GET_USER_LIST', mod.majorPatchVersion > 85 ? 17 : 16, event => updatePositions(event.characters))
 
   // Keep track of current char for relog nx
   mod.hook('C_SELECT_USER', 1, /*{order: 100, filter: {fake: null}},*/ event => {
@@ -36,7 +36,7 @@ module.exports = function Relog(mod) {
   function getCharacterId(name) {
     return new Promise((resolve, reject) => {
       // request handler, resolves with character's playerId
-      const userListHook = mod.hookOnce('S_GET_USER_LIST', 16, event => {
+      const userListHook = mod.hookOnce('S_GET_USER_LIST', mod.majorPatchVersion > 85 ? 17 : 16, event => {
         name = name.toLowerCase()
         let index = (name === 'nx')? ++curr_char : parseInt(name)
         if (index && index > event.characters.length) index = 1
@@ -70,7 +70,7 @@ module.exports = function Relog(mod) {
       mod.toClient('S_RETURN_TO_LOBBY', 1, {})
 
       // the server is not ready yet, displaying "Loading..." as char names
-      userListHook = mod.hookOnce('S_GET_USER_LIST', 16, event => {
+      userListHook = mod.hookOnce('S_GET_USER_LIST', mod.majorPatchVersion > 85 ? 17 : 16, event => {
         event.characters.forEach(char => char.name = 'Loading...')
         return true
       })
